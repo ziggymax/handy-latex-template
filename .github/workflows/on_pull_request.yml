@@ -1,0 +1,33 @@
+name: Check that documents can be built
+
+on:
+  workflow_dispatch: 
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Compile LaTeX document(s)
+      uses: xu-cheng/latex-action@v3
+      with:
+        docker_image: ghcr.io/ziggymax/handy-latex-img:latest
+        latexmk_shell_escape: true
+        working_directory: .
+        work_in_root_file_dir: true
+        root_file: |
+          doc/master.tex
+
+    - name: Upload PDF file(s)
+      uses: actions/upload-artifact@v3
+      with:
+        name: pdf-files
+        path: |
+         doc/master.pdf
