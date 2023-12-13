@@ -6,13 +6,6 @@
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
     "editor.wordWrap": "on",
-    "latex-workshop.latex.magic.args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-shell-escape",
-        "%DOC%"
-    ],
     "latex-workshop.intellisense.update.aggressive.enabled": true,
-    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/output"
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex.out"
 }
