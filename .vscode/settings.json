@@ -8,5 +8,7 @@
     "editor.wordWrap": "on",
     "latex-workshop.intellisense.update.aggressive.enabled": true,
     "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex.out",
-    "ltex.java.path": "/usr"
+    "ltex.java.path": "/usr",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.method": "glob",
 }
