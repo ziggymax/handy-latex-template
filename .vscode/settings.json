@@ -7,5 +7,6 @@
     "editor.formatOnType": true,
     "editor.wordWrap": "on",
     "latex-workshop.intellisense.update.aggressive.enabled": true,
-    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex.out"
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/latex.out",
+    "ltex.java.path": "/usr"
 }
