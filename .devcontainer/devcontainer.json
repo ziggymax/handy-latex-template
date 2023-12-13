@@ -4,8 +4,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-vscode-remote.vscode-remote-extensionpack",
-                "github.remotehub",
                 "james-yu.latex-workshop",
                 "valentjn.vscode-ltex",
                 "donjayamanne.githistory",
