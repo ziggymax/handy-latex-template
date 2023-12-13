@@ -1,0 +1,17 @@
+{
+    "name": "handy-latex-project",
+    "image": "ghcr.io/ziggymax/handy-latex-img:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "github.remotehub",
+                "james-yu.latex-workshop",
+                "valentjn.vscode-ltex",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "mhutchie.git-graph"
+            ]
+        }
+    }
+}
