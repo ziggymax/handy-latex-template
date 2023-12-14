@@ -31,5 +31,5 @@ jobs:
       with:
         name: pdf-files
         path: |
-         latex.out/master-1.pdf
-         latex.out/master-2.pdf
+         documents/doc1/master-1.pdf
+         documents/doc2/master-2.pdf
