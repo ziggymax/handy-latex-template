@@ -24,7 +24,7 @@ jobs:
         work_in_root_file_dir: true
         root_file: |
           documents/doc1/master-1.tex
-          documents/doc1/master-2.tex
+          documents/doc2/master-2.tex
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
