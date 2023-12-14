@@ -7,20 +7,24 @@
     \usepackage{svg}
     \usepackage[OT1]{fontenc}\renewcommand*\familydefault{\sfdefault}
 
-    \graphicspath{{graphics/}}
-    \svgpath{{graphics/}}
+    \graphicspath{{../shared/graphics}{./graphics/}}
+    \svgpath{{../shared/graphics}{./graphics/}}
 
 
 \begin{document}
 \begin{center}
+    \Huge{\textbf{This is doc2}}
+    \break{}
     \huge{Hi! This is a demo page. Just replace anything in the doc folder \ldots}
     \break{}
     \normalsize
     This file, and the entire contents of the \texttt{doc/} folder, should obviously be replaced with whatever you want. But it is recommended to keep the folder structure and put all project specific stuff inside the \texttt{doc} folder. All temporary files and output goes into the \texttt{latex.out/} folder, so to clean up just delete \texttt{latex.out/} and everything in it.
     \vfill
-    \vspace{50mm}
-    \includesvg[width=0.6\textwidth]{handy-latex.svg}
-    \vspace{50mm}
+    \vspace{20mm}
+    \includesvg[width=0.6\textwidth]{handy-latex-2.svg}
+    \vspace{20mm}
+    \includesvg[width=0.4\textwidth]{handy-latex-shared.svg}
+    \vspace{20mm}
     \break{}
     \huge{- end of story}
     \vfill
