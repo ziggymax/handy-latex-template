@@ -24,6 +24,12 @@ jobs:
     - name: Show document list
       run: echo "documents=${{ env.documents }}"
 
+    - name: Make list of pdf-files
+      run: |
+        tmp="${{ env.documents }}"
+        echo "pdffiles=$(echo $tmp | sed 's/tex/pdf/g')" >> $GITHUB_ENV
+        echo "documents=${{ env.pdffiles }}"
+
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
       with:
@@ -32,14 +38,6 @@ jobs:
         working_directory: .
         work_in_root_file_dir: true
         root_file: ${{ env.documents }}
-
-    - name: Make list of pdf-files
-      run: |
-        tmp="${{ env.documents }}"
-        echo "pdffiles=$(echo ${tmp/\n/ /} | sed 's/tex/pdf/g')" >> $GITHUB_ENV
-
-    - name: Show pdf list
-      run: echo "documents=${{ env.pdffiles }}"
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
