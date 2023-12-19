@@ -24,7 +24,8 @@ jobs:
     - name: Make list of pdf-files
       run: |
         pdftmp=$(printf "%s" "${documents}" | sed 's/tex/pdf/g')
-        printf "pdffiles=%s\n" "$pdftmp" >> $GITHUB_ENV
+        printf "<${pdftmp}>\n"
+        printf "pdffiles=${pdftmp}\n" >> $GITHUB_ENV
 
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
