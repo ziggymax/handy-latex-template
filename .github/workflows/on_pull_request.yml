@@ -21,18 +21,10 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v3
 
-    - name: Show document list
-      run: echo "documents=${{ env.documents }}"
-
     - name: Make list of pdf-files
       run: |
         tmp="${{ env.documents }}"
-        echo "tmp=${tmp}"
         echo "pdffiles=$(echo ${tmp} | sed 's/tex/pdf/g')" >> $GITHUB_ENV
-
-    - name: Show list of pdf-files
-      run: |
-        echo "pdffiles=${{ env.pdffiles }}"
 
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
