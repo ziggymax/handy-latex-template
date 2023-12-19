@@ -23,7 +23,9 @@ jobs:
 
     - name: Make list of pdf-files
       run: |
-        printf "!!!!\n<pdffiles=%s\n>" "$(printf ${documents} | sed 's/tex/pdf/g')"
+        printf "! 1 !\n<$documents>\n"
+        printf "! 2 !\n" ${documents} | sed 's/tex/pdf/g'
+        printf "! 3 !\n<pdffiles=%s\n>" "$(printf ${documents} | sed 's/tex/pdf/g')"
         printf "pdffiles=%s\n" "$(printf ${documents} | sed 's/tex/pdf/g')" >> $GITHUB_ENV
 
     - name: Compile LaTeX document(s)
