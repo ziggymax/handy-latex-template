@@ -5,6 +5,12 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  documents: |
+    documents/doc1/master-1.tex
+    documents/doc2/master-2.tex
+  pdffiles: ""
+
 jobs:
 
   build:
@@ -22,14 +28,14 @@ jobs:
         latexmk_shell_escape: true
         working_directory: .
         work_in_root_file_dir: true
-        root_file: |
-          documents/doc1/master-1.tex
-          documents/doc2/master-2.tex
+        root_file: ${{ env.documents }}
+
+    - name: Make list of pdf-files
+      run: |
+        echo "pdffiles=$(echo ${{ env.documents }} || sed 's/tex/pdf/g') | tee -a $GITHUB_ENV 
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
       with:
         name: pdf-files
-        path: |
-         documents/doc1/master-1.pdf
-         documents/doc2/master-2.pdf
+        path: ${{ env.pdffiles }}
