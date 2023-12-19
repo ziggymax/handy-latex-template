@@ -27,11 +27,12 @@ jobs:
     - name: Make list of pdf-files
       run: |
         tmp="${{ env.documents }}"
-        echo "pdffiles=$(echo $tmp | sed 's/tex/pdf/g')" >> $GITHUB_ENV
+        echo "tmp=${tmp}"
+        echo "pdffiles=$(echo ${tmp} | sed 's/tex/pdf/g')" >> $GITHUB_ENV
 
     - name: Show list of pdf-files
       run: |
-        echo "documents=${{ env.pdffiles }}"
+        echo "pdffiles=${{ env.pdffiles }}"
 
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
@@ -40,7 +41,8 @@ jobs:
         latexmk_shell_escape: true
         working_directory: .
         work_in_root_file_dir: true
-        root_file: ${{ env.documents }}
+        root_file: |
+          ${{ env.documents }}
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
