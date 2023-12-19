@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Show document list
-      run: echo documents=${{ env.documents }}"
+      run: echo "documents=${{ env.documents }}"
 
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
@@ -38,7 +38,7 @@ jobs:
         echo "pdffiles=$(echo ${{ env.documents }} || sed 's/tex/pdf/g')" >> $GITHUB_ENV
 
     - name: Show pdf list
-      run: echo documents=${{ env.pdffiles }}"
+      run: echo "documents=${{ env.pdffiles }}"
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
