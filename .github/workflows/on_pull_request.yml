@@ -28,6 +28,9 @@ jobs:
       run: |
         tmp="${{ env.documents }}"
         echo "pdffiles=$(echo $tmp | sed 's/tex/pdf/g')" >> $GITHUB_ENV
+
+    - name: Show list of pdf-files
+      run: |
         echo "documents=${{ env.pdffiles }}"
 
     - name: Compile LaTeX document(s)
