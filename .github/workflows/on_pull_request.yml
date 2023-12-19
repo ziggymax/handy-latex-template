@@ -21,6 +21,9 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v3
 
+    - name: Show document list
+      run: echo documents=${{ env.documents }}"
+
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
       with:
@@ -32,7 +35,10 @@ jobs:
 
     - name: Make list of pdf-files
       run: |
-        echo "pdffiles=$(echo ${{ env.documents }} || sed 's/tex/pdf/g') | tee -a $GITHUB_ENV 
+        echo "pdffiles=$(echo ${{ env.documents }} || sed 's/tex/pdf/g')" >> $GITHUB_ENV
+
+    - name: Show pdf list
+      run: echo documents=${{ env.pdffiles }}"
 
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
