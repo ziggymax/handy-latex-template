@@ -36,10 +36,6 @@ jobs:
         root_file: |
           ${{ env.documents }}
 
-    - name: Check pdfs are there
-      run: |
-        ls -l ${{ env.pdffiles }}
-
     - name: Upload PDF file(s)
       uses: actions/upload-artifact@v3
       with:
