@@ -23,11 +23,9 @@ jobs:
 
     - name: Make list of pdf-files
       run: |
-        pdftmp=$(printf "%s" "${documents}" | sed 's/tex/pdf/g')
-        printf "pdffiles=${pdftmp}\n"
         {
           echo 'pdffiles<<EOF'
-          printf "${pdftmp}\n"
+          printf "%s\n" "${documents}" | sed 's/tex/pdf/g'
           echo EOF
         } >> "$GITHUB_ENV"
 
