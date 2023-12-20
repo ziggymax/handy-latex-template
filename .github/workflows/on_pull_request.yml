@@ -25,7 +25,11 @@ jobs:
       run: |
         pdftmp=$(printf "%s" "${documents}" | sed 's/tex/pdf/g')
         printf "pdffiles='${pdftmp}\n'"
-        printf "pdffiles='${pdftmp}\n'" >> $GITHUB_ENV
+        {
+          echo 'pdffiles<<EOF'
+          printf "pdffiles='${pdftmp}\n'"
+          echo EOF
+        } >> "$GITHUB_ENV"
 
     - name: Compile LaTeX document(s)
       uses: xu-cheng/latex-action@v3
